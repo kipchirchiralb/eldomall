@@ -43,6 +43,24 @@ app.post("/login", (req, res) => {
   // get email and password (req.body)
   // check if email is in db - - SELECT EMAIL, PASSWORD FROM users where email = ?
   // compare email in req.body vs email in resultfrom ===
+  dbconn.query(
+    `SELECT email FROM users WHERE email = ${req.body.email}`,
+    (error, user) => {
+      if (error) {
+        res.send("A problem occured");
+      }
+      if (user.length > 0) {
+        if (user[0].password === req.body.password) {
+          // create a session
+          res.redirect("/");
+        } else {
+          res.render("login", { errorMessage: "email or password incorret" });
+        }
+      } else {
+        res.render("login", { errorMessage: "email or password incorret" });
+      }
+    }
+  );
   res.render("login");
 });
 
