@@ -39,6 +39,12 @@ app.get(
 app.get("/login", (req, res) => {
   res.render("login");
 });
+app.post("/login", (req, res) => {
+  // get email and password (req.body)
+  // check if email is in db - - SELECT EMAIL, PASSWORD FROM users where email = ?
+  // compare email in req.body vs email in resultfrom ===
+  res.render("login");
+});
 
 app.get("/signup", (req, res) => {
   res.render("signup");
@@ -46,6 +52,8 @@ app.get("/signup", (req, res) => {
 app.post("/signup", (req, res) => {
   console.log(req.body);
   // save the data to the db
+  // add id number field on the frontend
+
   dbconn.query(
     "INSERT INTO users (fullname, email,password,phone,location,id) VALUES(?,?,?,?,?,?)",
     [
