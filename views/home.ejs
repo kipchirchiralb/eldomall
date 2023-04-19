@@ -13,8 +13,21 @@
     <h1>Home Page</h1>
     <nav>
         <a href="/">Home</a>
-        <a href="/login">Login</a>
-        <a href="/signup">Sign up</a>
+
+        <%if(locals.isLoggedIn){%>
+
+            <a href="/logout">Logout</a>
+            <a href="/account">
+                <%=locals.user.fullname%>
+            </a>
+
+            <%}else{%>
+
+                <a href="/login">Login</a>
+                <a href="/signup">Sign up</a>
+
+                <%}%>
+
     </nav>
 </body>
 
