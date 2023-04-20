@@ -1,5 +1,6 @@
 const express = require("express");
 const mysql = require("mysql");
+
 const session = require("express-session");
 
 const dbconn = mysql.createConnection({
@@ -8,6 +9,8 @@ const dbconn = mysql.createConnection({
   password: "",
   database: "eldomall_db",
 });
+
+// clinet(browser) --- Server(sesssion Storage-session)
 
 // dbconn.query("ALTER TABLE users ADD COLUMN password VARCHAR(255) AFTER email");
 // dbconn.query("ALTER TABLE users MODIFY COLUMN phone VARCHAR(255)");
@@ -25,8 +28,9 @@ app.use(
   })
 );
 
+// custom middlware -- to send user data to views
+// jwts - json web tokens
 app.use((req, res, next) => {
-  // authentication logic
   if (req.session.isLoggedIn) {
     res.locals.isLoggedIn = true;
     res.locals.user = req.session.user;
@@ -46,7 +50,8 @@ app.get(
     next();
   },
   (req, res) => {
-    console.log(req.sessionID);
+    console.log(req.sessionStore);
+
     res.render("home");
   }
 );
