@@ -1,5 +1,7 @@
 const express = require("express");
 const mysql = require("mysql");
+const bcrypt = require("bcrypt");
+const saltRounds = 5;
 
 const session = require("express-session");
 
@@ -13,6 +15,7 @@ const dbconn = mysql.createConnection({
 // clinet(browser) --- Server(sesssion Storage-session)
 
 // dbconn.query("ALTER TABLE users ADD COLUMN password VARCHAR(255) AFTER email");
+
 // dbconn.query("ALTER TABLE users MODIFY COLUMN phone VARCHAR(255)");
 
 const app = express();
@@ -93,7 +96,6 @@ app.get("/signup", (req, res) => {
   res.render("signup");
 });
 app.post("/signup", (req, res) => {
-  // console.log(req.body);
   // save the data to the db
   // add id number field on the frontend
 
@@ -138,5 +140,7 @@ app.get("/logout", (req, res) => {
     res.redirect("/");
   });
 });
+
+// encrypting
 
 app.listen(3003, () => console.log("App running")); // starting the app

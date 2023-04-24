@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2023 at 01:48 PM
+-- Generation Time: Apr 24, 2023 at 12:47 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -112,15 +112,22 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `fullname`, `email`, `password`, `date_of_reg`, `phone`, `location`) VALUES
 (0, 'albert', '', NULL, '0000-00-00', NULL, NULL),
+(1, 'goku', 'mj993600@gmail.com', 'passuwad', '2023-04-19', '07999999', 'elteret'),
 (33, 'kemboi', 'k@g.com', NULL, '0000-00-00', '784874387483', 'kisumu'),
+(55, 'sick puppy', 'mj993600@gmail.com', 'passuwad', '2023-04-19', '432423', ''),
 (111, NULL, 'aal@gmail.com', NULL, '0000-00-00', '454545', 'eldoret'),
 (222, 'jorit', 'j@g.m', NULL, '0000-00-00', '777778', 'german'),
+(362, 'Dwayne', 'drokud@gmail.com', 'kjuhygfd', '2023-04-19', '+2547............', 'Nairobi,Kenya'),
 (555, 'kenn', 'ken@gmail.com', NULL, '0000-00-00', '828282', 'hello'),
 (788, NULL, NULL, NULL, '2023-03-31', NULL, NULL),
 (888, NULL, 'aal@gmail.com', NULL, '0000-00-00', '454545', 'eldoret'),
+(989, 'Dwayne', 'drokud@gmail.com', 'ttt', '2023-04-19', '+2547............', 'Nairobi,Kenya'),
 (999, 'jorit', 'j@g.m', NULL, '0000-00-00', '777778', 'german'),
 (7829, 'Albert Kipchirchir', 'alb@gm.c', 'ssd', '2023-04-14', '738q728372', '343'),
+(90000, 'main', 'alphy@gmail.co.ke', '7ujm', '2023-04-19', '09090090', 'ktl'),
 (3535345, NULL, NULL, NULL, '0000-00-00', NULL, NULL),
+(6767676, 'Victor Odhiambo', 'victor@gmail.com', 'victor', '2023-04-20', '070707', 'eldoret'),
+(62762812, 'albert', 'albert@example.com', 'ppp', '2023-04-19', '08938393', 'kenya'),
 (87872872, 'Jedial Musyimi', 'jed@gmail.com', '727whwh', '2023-04-14', '7627672627', 'Eldoret, Kenya');
 
 --
