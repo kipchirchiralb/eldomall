@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h1>Home Page</h1>
+    <h1>Eldomall</h1>
     <nav>
         <a href="/">Home</a>
 
@@ -29,6 +29,27 @@
                 <%}%>
 
     </nav>
+
+    <main>
+        <div class="products">
+            <%products.forEach(prod=>{%>
+
+                <div class="product">
+                    <img src="" alt="">
+                    <h3>
+                        <%=prod.name%>
+                    </h3>
+                    <h3>
+                        <%=prod.price%>
+                    </h3>
+                    <button data-product-id="<%=prod.id%>" class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <%})%>
+        </div>
+    </main>
+
+
 </body>
 
 </html>

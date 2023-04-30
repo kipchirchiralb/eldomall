@@ -46,18 +46,15 @@ app.use((req, res, next) => {
 // body parser middleware
 app.use(express.urlencoded({ extended: false }));
 
-app.get(
-  "/",
-  function (req, res, next) {
-    console.log("this is middleware");
-    next();
-  },
-  (req, res) => {
-    console.log(req.sessionStore);
-
-    res.render("home");
-  }
-);
+app.get("/", (req, res) => {
+  dbconn.query("SELECT * FROM products", (error, data) => {
+    if (error) {
+      res.status(500).send("Server error");
+    } else {
+      res.render("home", { products: data });
+    }
+  });
+});
 
 app.get("/login", (req, res) => {
   // console.log(req.session.isLoggedIn);
